@@ -49,11 +49,11 @@ class _SimpleExampleAppState extends State<_SimpleExampleApp> {
     player.setReleaseMode(ReleaseMode.stop);
 
     // Start the player as soon as the app is displayed.
-    // WidgetsBinding.instance.addPostFrameCallback((_) async {
-    //   // await player.setSource(AssetSource('/data/user/0/com.example.music_app/cache/file_picker/1735494966203/KHUTTI  Official Music Video  Diljit Dosanjh x Saweetie.mp3'));
-    //   // await player.setSourceDeviceFile('/data/user/0/com.example.music_app/cache/file_picker/1735494966203/KHUTTI  Official Music Video  Diljit Dosanjh x Saweetie.mp3');
-    //   await player.resume();
-    // });
+    WidgetsBinding.instance.addPostFrameCallback((_) async {
+      //  await player.setSource(AssetSource('/data/user/0/com.example.music_app/cache/file_picker/1735494966203/KHUTTI  Official Music Video  Diljit Dosanjh x Saweetie.mp3'));
+      await player.setSourceDeviceFile('/data/user/0/com.example.music_app/cache/file_picker/1735494966203/KHUTTI  Official Music Video  Diljit Dosanjh x Saweetie.mp3');
+      await player.resume();
+    });
   }
 
   @override

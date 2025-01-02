@@ -3,9 +3,11 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:audioplayers/audioplayers.dart';
 import 'package:file_picker/file_picker.dart';
+import 'package:get/get.dart';
 import 'package:get/get_state_manager/get_state_manager.dart';
 import 'package:get/route_manager.dart';
 import 'package:music_app/controllers/main_controller.dart';
+import 'package:music_app/controllers/theme_controller.dart';
 import 'package:music_app/screens/home_screen.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:permission_handler/permission_handler.dart';
@@ -13,16 +15,20 @@ import 'package:permission_handler/permission_handler.dart';
 void main() {
   runApp(MyApp());
 }
-
+ColorManager colorManager = Get.put(ColorManager());
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
-      title: 'Flutter Music Player',
+      debugShowCheckedModeBanner: false,
+      title: 'Spotify Clone',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        appBarTheme: AppBarTheme(backgroundColor: colorManager.bgColor),
+        scaffoldBackgroundColor: colorManager.bgColor,
+        primaryColor: colorManager.primaryColor,
+        
       ),
-      home: _SimpleExampleApp(),
+      home: HomeScreen(),
     );
   }
 }
@@ -43,17 +49,17 @@ class _SimpleExampleAppState extends State<_SimpleExampleApp> {
     super.initState();
 
     // Create the audio player.
-    player = AudioPlayer();
+    // player = AudioPlayer();
 
-    // Set the release mode to keep the source after playback has completed.
-    player.setReleaseMode(ReleaseMode.stop);
+    // // Set the release mode to keep the source after playback has completed.
+    // player.setReleaseMode(ReleaseMode.stop);
 
-    // Start the player as soon as the app is displayed.
-    WidgetsBinding.instance.addPostFrameCallback((_) async {
-      //  await player.setSource(AssetSource('/data/user/0/com.example.music_app/cache/file_picker/1735494966203/KHUTTI  Official Music Video  Diljit Dosanjh x Saweetie.mp3'));
-      await player.setSourceDeviceFile('/data/user/0/com.example.music_app/cache/file_picker/1735494966203/KHUTTI  Official Music Video  Diljit Dosanjh x Saweetie.mp3');
-      await player.resume();
-    });
+    // // Start the player as soon as the app is displayed.
+    // WidgetsBinding.instance.addPostFrameCallback((_) async {
+    //   //  await player.setSource(AssetSource('/data/user/0/com.example.music_app/cache/file_picker/1735494966203/KHUTTI  Official Music Video  Diljit Dosanjh x Saweetie.mp3'));
+    //   await player.setSourceDeviceFile('/data/user/0/com.example.music_app/cache/file_picker/1735494966203/KHUTTI  Official Music Video  Diljit Dosanjh x Saweetie.mp3');
+    //   await player.resume();
+    // });
   }
 
   @override
@@ -70,7 +76,7 @@ class _SimpleExampleAppState extends State<_SimpleExampleApp> {
       appBar: AppBar(
         title: const Text('Simple Player'),
       ),
-      body: PlayerWidget(player: player),
+      body: HomeScreen(),
     );
   }
 }

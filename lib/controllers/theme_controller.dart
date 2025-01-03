@@ -12,8 +12,9 @@ class ColorManager extends GetxController {
   // String currency = "\$";
   // String StoreLogo = 'assets/logo-light.png';
 
-  Color primaryColor = const Color(0xFF42C83C);
+  Color primaryColor = const Color(0xFF62CD5D);
   Color bgColor = const Color(0xFF1C1B1B);
+  // Color bgColor =
 
   Color textColor = const Color(0xFFffffff);
   Color iconColor = const Color(0xFF959595);

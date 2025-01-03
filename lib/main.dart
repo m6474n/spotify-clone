@@ -23,6 +23,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Spotify Clone',
       theme: ThemeData(
+        fontFamily: 'Satoshi',
         appBarTheme: AppBarTheme(backgroundColor: colorManager.bgColor),
         scaffoldBackgroundColor: colorManager.bgColor,
         primaryColor: colorManager.primaryColor,

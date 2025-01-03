@@ -20,7 +20,7 @@ class MainController extends GetxController {
   StreamSubscription? playerCompleteSubscription;
   StreamSubscription? playerStateChangeSubscription;
   DatabaseHelper db = DatabaseHelper.instance;
-
+List<String> catList = ['News', 'Video','Artist', 'Podcast'];
 
   late StreamController<List<Song>> songStreamController;
   late Stream<List<Song>> songStream;
